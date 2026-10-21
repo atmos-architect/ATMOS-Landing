@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATMOS Studio 2.0 | AI architectural visualization</title>
+    <meta name="description" content="AI-powered architectural visualization suite for floor plans, masterplans and 3D perspectives.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        atmosBg: '#121417',
+                        atmosCard: '#1c1f23',
+                        atmosText: '#FFFFFF',
+                        atmosAccent: '#408179',
+                        atmosShadow: '#326760',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    boxShadow: {
+                        'atmos-glow': '0 0 20px rgba(64, 129, 121, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #121417; color: #FFFFFF; }
+        /* La marca nunca se invierte, ni con dir="rtl". */
+        .marca { direction: ltr; unicode-bidi: isolate; }
+    </style>
+</head>
+<body class="antialiased selection:bg-atmosAccent/30">
+
+    <nav class="fixed w-full z-50 bg-atmosBg/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
+            <a href="/" class="flex items-center gap-3 marca">
+                <div class="w-10 h-10 bg-atmosCard rounded-lg border border-white/10 shadow-lg overflow-hidden">
+                    <img src="logo.png" alt="ATMOS Studio" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold tracking-[0.2em] text-sm text-white">ATMOS</span>
+                    <span class="text-[10px] text-atmosAccent uppercase tracking-widest font-medium">Studio</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-4">
+                <select id="lang-select"
+                        data-i18n-aria="lang"
+                        class="bg-transparent text-sm text-gray-300 border border-white/10 rounded-lg px-2 py-1.5 focus:outline-none focus:border-atmosAccent cursor-pointer">
+                </select>
+                <a href="mailto:hola@app-atmos.com" data-i18n="contact"
+                   class="hidden md:block px-5 py-2 text-sm font-medium border border-atmosAccent/50 text-atmosAccent rounded-full hover:bg-atmosAccent hover:text-white transition-all duration-300">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-36 pb-16 px-6 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-atmosAccent/10 rounded-full blur-[120px] -z-10"></div>
+
+        <div class="max-w-4xl mx-auto text-center">
+            <p data-i18n="hero.badge"
+               class="inline-block mb-6 px-4 py-1.5 text-[11px] uppercase tracking-[0.2em] text-atmosAccent border border-atmosAccent/30 rounded-full"></p>
+
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 font-sans tracking-tight">
+                <span data-i18n="hero.t1" class="block"></span>
+                <span data-i18n="hero.t2" class="block font-serif italic font-normal text-atmosAccent"></span>
+            </h1>
+
+            <p data-i18n="hero.sub"
+               class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"></p>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="https://app.app-atmos.com" data-i18n="cta.web"
+                   class="w-full md:w-auto px-8 py-4 bg-white text-atmosBg font-bold rounded-xl shadow-atmos-glow hover:scale-105 transition-transform duration-300 text-center"></a>
+
+                <a href="https://apps.apple.com/app/id6757624696" target="_blank" rel="noopener"
+                   data-i18n="cta.app"
+                   class="w-full md:w-auto px-8 py-4 border border-white/15 text-gray-200 font-medium rounded-xl hover:bg-white/5 hover:text-white transition-all text-center"></a>
+            </div>
+        </div>
+
+        <div class="mt-16 flex justify-center">
+            <img src="render1.webp" alt="ATMOS Studio render"
+                 class="w-full max-w-3xl h-auto rounded-2xl border border-white/10 shadow-2xl">
+        </div>
+    </section>
+
+    <section class="py-24 bg-atmosCard/40 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <p data-i18n="pillars.kicker"
+               class="text-center text-[11px] uppercase tracking-[0.25em] text-atmosAccent mb-3"></p>
+            <h2 data-i18n="pillars.title" class="text-3xl font-bold mb-12 text-center"></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 rounded-2xl bg-atmosBg/60 border border-white/5 hover:border-atmosAccent/30 transition-colors">
+                    <div class="w-12 h-12 bg-atmosAccent/10 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-atmosAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M4 5h16v14H4zM9 5v14M4 12h5"></path></svg>
+                    </div>
+                    <h3 data-i18n="p1.t" class="text-xl font-bold mb-2"></h3>
+                    <p data-i18n="p1.d" class="text-gray-400 text-sm leading-relaxed"></p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-atmosBg/60 border border-white/5 hover:border-atmosAccent/30 transition-colors">
+                    <div class="w-12 h-12 bg-atmosAccent/10 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-atmosAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M3 20h18M6 20V9l6-5 6 5v11M10 20v-5h4v5"></path></svg>
+                    </div>
+                    <h3 data-i18n="p2.t" class="text-xl font-bold mb-2"></h3>
+                    <p data-i18n="p2.d" class="text-gray-400 text-sm leading-relaxed"></p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-atmosBg/60 border border-white/5 hover:border-atmosAccent/30 transition-colors">
+                    <div class="w-12 h-12 bg-atmosAccent/10 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-atmosAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M3 17l6-6 4 4 8-8M21 7v5h-5"></path></svg>
+                    </div>
+                    <h3 data-i18n="p3.t" class="text-xl font-bold mb-2"></h3>
+                    <p data-i18n="p3.d" class="text-gray-400 text-sm leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <p data-i18n="tech.kicker"
+               class="text-center text-[11px] uppercase tracking-[0.25em] text-atmosAccent mb-3"></p>
+            <h2 data-i18n="tech.title" class="text-3xl font-bold mb-3 text-center"></h2>
+            <p data-i18n="tech.sub" class="text-center text-gray-400 mb-12"></p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-5 rounded-2xl border border-white/5 bg-atmosCard/40">
+                    <h3 data-i18n="t1.t" class="text-base font-bold mb-2 text-atmosAccent"></h3>
+                    <p data-i18n="t1.d" class="text-gray-400 text-sm leading-relaxed"></p>
+                </div>
+                <div class="p-5 rounded-2xl border border-white/5 bg-atmosCard/40">
+                    <h3 data-i18n="t2.t" class="text-base font-bold mb-2 text-atmosAccent"></h3>
+                    <p data-i18n="t2.d" class="text-gray-400 text-sm leading-relaxed"></p>
+                </div>
+                <div class="p-5 rounded-2xl border border-white/5 bg-atmosCard/40">
+                    <h3 data-i18n="t3.t" class="text-base font-bold mb-2 text-atmosAccent"></h3>
+                    <p data-i18n="t3.d" class="text-gray-400 text-sm leading-relaxed"></p>
+                </div>
+                <div class="p-5 rounded-2xl border border-white/5 bg-atmosCard/40">
+                    <h3 data-i18n="t4.t" class="text-base font-bold mb-2 text-atmosAccent"></h3>
+                    <p data-i18n="t4.d" class="text-gray-400 text-sm leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 data-i18n="gallery.title" class="text-3xl font-bold mb-10 text-center"></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <img src="render_rustico.webp" alt="" loading="lazy" class="w-full h-64 object-cover rounded-2xl border border-white/5">
+                <img src="render_moderno.webp" alt="" loading="lazy" class="w-full h-64 object-cover rounded-2xl border border-white/5">
+                <img src="render_minimalista.webp" alt="" loading="lazy" class="w-full h-64 object-cover rounded-2xl border border-white/5">
+                <img src="render_industrial.webp" alt="" loading="lazy" class="w-full h-64 object-cover rounded-2xl border border-white/5">
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 text-center bg-atmosCard/30">
+        <p data-i18n="footer.rights" class="text-gray-500 text-sm mb-6"></p>
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+            <a href="terminos.html" data-i18n="footer.terms" class="hover:text-atmosAccent transition-colors"></a>
+            <a href="privacidad.html" data-i18n="footer.privacy" class="hover:text-atmosAccent transition-colors"></a>
+            <a href="faq.html" data-i18n="footer.faq" class="hover:text-atmosAccent transition-colors"></a>
+            <a href="mailto:soporte@app-atmos.com" data-i18n="footer.support" class="hover:text-atmosAccent transition-colors"></a>
+        </div>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script>
+        (function () {
+            const selector = document.getElementById("lang-select");
+            window.AtmosI18n.LANGS.forEach((l) => {
+                const opcion = document.createElement("option");
+                opcion.value = l.code;
+                opcion.textContent = `${l.flag} ${l.name}`;
+                selector.appendChild(opcion);
+            });
+            selector.addEventListener("change", (e) => {
+                window.AtmosI18n.aplicarIdioma(e.target.value);
+            });
+            window.AtmosI18n.aplicarIdioma(window.AtmosI18n.idiomaInicial());
+        })();
+    </script>
+
+</body>
+</html>
