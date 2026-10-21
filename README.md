@@ -34,3 +34,24 @@ Netlify sirve `app-atmos.com`. El sitio es estático puro: no hay build.
 - Las páginas secundarias (FAQ, galería, legal) siguen solo en español.
 - El mockup del hero es una captura del render, no del teléfono: falta uno
   actualizado con la app 2.0.
+
+## Imágenes
+
+Los huecos están maquetados y apuntan a `assets/` con esta nomenclatura fija:
+
+| Archivo | Dónde | Ratio |
+|---|---|---|
+| `hero-showcase.webp` | Hero | 16:9 |
+| `workspace-floorplans.jpg` | Tarjeta Plantas | 16:10 |
+| `workspace-masterplans.jpg` | Tarjeta Masterplans | 16:10 |
+| `workspace-perspectives.jpg` | Tarjeta Perspectivas | 16:10 |
+| `tech-photoreal.jpg` | Técnica fotorrealista | 1:1 |
+| `tech-clay.jpg` | Técnica Clay | 1:1 |
+| `tech-watercolor.jpg` | Técnica acuarela | 1:1 |
+| `tech-sketch.jpg` | Técnica tinta | 1:1 |
+| `gallery-1.jpg` … `gallery-4.jpg` | Galería | 4:3 |
+
+Sustituir el archivo basta: el hueco tiene el ratio fijado con `aspect-*`, así
+que una imagen de otra proporción se recorta con `object-fit: cover` y no
+descoloca la página. Si el archivo falta, `onerror` retira la etiqueta y queda
+el fondo del hueco, sin icono roto.

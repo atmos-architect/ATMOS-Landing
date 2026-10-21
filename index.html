@@ -41,6 +41,9 @@
         /* La marca nunca se invierte, ni con dir="rtl". */
         .marca { direction: ltr; unicode-bidi: isolate; }
         .regla { background: linear-gradient(90deg, transparent, #2a2f35, transparent); height: 1px; }
+        /* Hueco de imagen: fondo neutro detrás; si el archivo falta, no rompe. */
+        .slot { background: radial-gradient(circle at 50% 40%, #1c1f23, #121417); }
+        .slot img { display: block; width: 100%; height: 100%; object-fit: cover; }
         /* El tracking negativo rompe el enlace de las letras árabes. */
         [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
         [dir="rtl"] .tracking-tight, [dir="rtl"] [class*="tracking-"] {
@@ -95,8 +98,10 @@
         </div>
 
         <div class="mt-16 flex justify-center">
-            <img src="render1.webp" alt="ATMOS Studio render"
-                 class="w-full max-w-4xl h-auto rounded-2xl border border-white/10 shadow-2xl">
+            <div class="slot w-full max-w-5xl aspect-[16/9] rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
+                <img src="assets/hero-showcase.webp" alt="ATMOS Studio showcase"
+                     width="1600" height="900" onerror="this.remove()">
+            </div>
         </div>
     </section>
 
@@ -107,8 +112,12 @@
             <h2 data-i18n="ws.title" class="text-3xl md:text-4xl font-bold mb-14 max-w-2xl"></h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <article class="p-7 rounded-2xl bg-atmosBg/70 border border-atmosLine hover:border-atmosAccent/40 transition-colors flex flex-col">
-                    <div class="w-12 h-12 bg-atmosAccent/10 rounded-xl flex items-center justify-center mb-6">
+                <article class="p-5 rounded-2xl bg-atmosBg/70 border border-atmosLine hover:border-atmosAccent/40 transition-colors flex flex-col">
+                    <div class="slot aspect-[16/10] rounded-xl overflow-hidden border border-white/10 bg-white/5 mb-6">
+                        <img src="assets/workspace-floorplans.jpg" alt="" loading="lazy"
+                             width="900" height="562" onerror="this.remove()">
+                    </div>
+                    <div class="px-2 w-12 h-12 bg-atmosAccent/10 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-atmosAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 5h16v14H4zM9 5v14M4 12h5"></path></svg>
                     </div>
                     <h3 data-i18n="ws1.t" class="text-xl font-bold mb-2"></h3>
@@ -120,8 +129,12 @@
                     </ul>
                 </article>
 
-                <article class="p-7 rounded-2xl bg-atmosBg/70 border border-atmosLine hover:border-atmosAccent/40 transition-colors flex flex-col">
-                    <div class="w-12 h-12 bg-atmosAccent/10 rounded-xl flex items-center justify-center mb-6">
+                <article class="p-5 rounded-2xl bg-atmosBg/70 border border-atmosLine hover:border-atmosAccent/40 transition-colors flex flex-col">
+                    <div class="slot aspect-[16/10] rounded-xl overflow-hidden border border-white/10 bg-white/5 mb-6">
+                        <img src="assets/workspace-masterplans.jpg" alt="" loading="lazy"
+                             width="900" height="562" onerror="this.remove()">
+                    </div>
+                    <div class="px-2 w-12 h-12 bg-atmosAccent/10 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-atmosAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 20h18M6 20V9l6-5 6 5v11M10 20v-5h4v5"></path></svg>
                     </div>
                     <h3 data-i18n="ws2.t" class="text-xl font-bold mb-2"></h3>
@@ -133,8 +146,12 @@
                     </ul>
                 </article>
 
-                <article class="p-7 rounded-2xl bg-atmosBg/70 border border-atmosLine hover:border-atmosAccent/40 transition-colors flex flex-col">
-                    <div class="w-12 h-12 bg-atmosAccent/10 rounded-xl flex items-center justify-center mb-6">
+                <article class="p-5 rounded-2xl bg-atmosBg/70 border border-atmosLine hover:border-atmosAccent/40 transition-colors flex flex-col">
+                    <div class="slot aspect-[16/10] rounded-xl overflow-hidden border border-white/10 bg-white/5 mb-6">
+                        <img src="assets/workspace-perspectives.jpg" alt="" loading="lazy"
+                             width="900" height="562" onerror="this.remove()">
+                    </div>
+                    <div class="px-2 w-12 h-12 bg-atmosAccent/10 rounded-xl flex items-center justify-center mb-6">
                         <svg class="w-6 h-6 text-atmosAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 17l6-6 4 4 8-8M21 7v5h-5"></path></svg>
                     </div>
                     <h3 data-i18n="ws3.t" class="text-xl font-bold mb-2"></h3>
@@ -157,20 +174,36 @@
             <p data-i18n="tech.sub" class="text-atmosSoft mb-14 max-w-xl"></p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="p-7 rounded-2xl border border-atmosLine bg-atmosCard/40">
-                    <h3 data-i18n="t1.t" class="text-lg font-bold mb-3 text-atmosAccent"></h3>
+                <div class="p-5 rounded-2xl border border-atmosLine bg-atmosCard/40">
+                    <div class="slot aspect-square rounded-xl overflow-hidden border border-white/10 bg-white/5 mb-5">
+                        <img src="assets/tech-photoreal.jpg" alt="" loading="lazy"
+                             width="700" height="700" onerror="this.remove()">
+                    </div>
+                    <h3 data-i18n="t1.t" class="text-lg font-bold mb-3 text-atmosAccent px-2"></h3>
                     <p data-i18n="t1.d" class="text-gray-400 text-sm leading-relaxed"></p>
                 </div>
-                <div class="p-7 rounded-2xl border border-atmosLine bg-atmosCard/40">
-                    <h3 data-i18n="t2.t" class="text-lg font-bold mb-3 text-atmosAccent"></h3>
+                <div class="p-5 rounded-2xl border border-atmosLine bg-atmosCard/40">
+                    <div class="slot aspect-square rounded-xl overflow-hidden border border-white/10 bg-white/5 mb-5">
+                        <img src="assets/tech-clay.jpg" alt="" loading="lazy"
+                             width="700" height="700" onerror="this.remove()">
+                    </div>
+                    <h3 data-i18n="t2.t" class="text-lg font-bold mb-3 text-atmosAccent px-2"></h3>
                     <p data-i18n="t2.d" class="text-gray-400 text-sm leading-relaxed"></p>
                 </div>
-                <div class="p-7 rounded-2xl border border-atmosLine bg-atmosCard/40">
-                    <h3 data-i18n="t3.t" class="text-lg font-bold mb-3 text-atmosAccent"></h3>
+                <div class="p-5 rounded-2xl border border-atmosLine bg-atmosCard/40">
+                    <div class="slot aspect-square rounded-xl overflow-hidden border border-white/10 bg-white/5 mb-5">
+                        <img src="assets/tech-watercolor.jpg" alt="" loading="lazy"
+                             width="700" height="700" onerror="this.remove()">
+                    </div>
+                    <h3 data-i18n="t3.t" class="text-lg font-bold mb-3 text-atmosAccent px-2"></h3>
                     <p data-i18n="t3.d" class="text-gray-400 text-sm leading-relaxed"></p>
                 </div>
-                <div class="p-7 rounded-2xl border border-atmosLine bg-atmosCard/40">
-                    <h3 data-i18n="t4.t" class="text-lg font-bold mb-3 text-atmosAccent"></h3>
+                <div class="p-5 rounded-2xl border border-atmosLine bg-atmosCard/40">
+                    <div class="slot aspect-square rounded-xl overflow-hidden border border-white/10 bg-white/5 mb-5">
+                        <img src="assets/tech-sketch.jpg" alt="" loading="lazy"
+                             width="700" height="700" onerror="this.remove()">
+                    </div>
+                    <h3 data-i18n="t4.t" class="text-lg font-bold mb-3 text-atmosAccent px-2"></h3>
                     <p data-i18n="t4.d" class="text-gray-400 text-sm leading-relaxed"></p>
                 </div>
             </div>
@@ -205,10 +238,10 @@
         <div class="max-w-6xl mx-auto">
             <h2 data-i18n="gallery.title" class="text-3xl font-bold mb-10"></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <img src="render_rustico.webp" alt="" loading="lazy" class="w-full h-72 object-cover rounded-2xl border border-white/5">
-                <img src="render_moderno.webp" alt="" loading="lazy" class="w-full h-72 object-cover rounded-2xl border border-white/5">
-                <img src="render_minimalista.webp" alt="" loading="lazy" class="w-full h-72 object-cover rounded-2xl border border-white/5">
-                <img src="render_industrial.webp" alt="" loading="lazy" class="w-full h-72 object-cover rounded-2xl border border-white/5">
+                <div class="slot aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-white/5"><img src="assets/gallery-1.jpg" alt="" loading="lazy" width="900" height="675" onerror="this.remove()"></div>
+                <div class="slot aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-white/5"><img src="assets/gallery-2.jpg" alt="" loading="lazy" width="900" height="675" onerror="this.remove()"></div>
+                <div class="slot aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-white/5"><img src="assets/gallery-3.jpg" alt="" loading="lazy" width="900" height="675" onerror="this.remove()"></div>
+                <div class="slot aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-white/5"><img src="assets/gallery-4.jpg" alt="" loading="lazy" width="900" height="675" onerror="this.remove()"></div>
             </div>
         </div>
     </section>
