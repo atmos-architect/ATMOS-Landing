@@ -1,0 +1,6 @@
+# Páginas retiradas en la 2.0: la galería y los tutoriales mostraban el producto
+# anterior. Redirigimos a la home para no dejar 404 a los enlaces antiguos.
+/galeria.html      /       301
+/tutoriales.html   /       301
+/en/galeria.html   /       301
+/en/tutoriales.html /      301
